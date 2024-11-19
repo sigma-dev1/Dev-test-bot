@@ -1,5 +1,5 @@
 import logging
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, filters
 from telegram import ReplyKeyboardMarkup
 
 # Configurazione logging
@@ -44,12 +44,12 @@ def handle_gif(update, context):
 
 # Funzione principale per avviare il bot
 def main():
-    updater = Updater("4f3GIp19JmVvh06kVM", use_context=True) 
+    updater = Updater("TOKEN_DEL_TUO_BOT", use_context=True)
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_menu))
-    dp.add_handler(MessageHandler(Filters.document.mime_type("image/gif"), handle_gif))
+    dp.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_menu))
+    dp.add_handler(MessageHandler(filters.Document.MIME_type("image/gif"), handle_gif))
 
     updater.start_polling()
     updater.idle()
