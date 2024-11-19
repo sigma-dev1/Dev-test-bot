@@ -44,7 +44,7 @@ def handle_gif(update, context):
 
 # Funzione principale per avviare il bot
 def main():
-    updater = Updater("7430248929:AAEFv-FIC40br_nz1gylJ9lZ0YNzEYKuLio", use_context=True)
+    updater = Updater("7430248929:AAEFv-FIC40br_nz1gylJ9lZ0YNzEYKuLio")  # Rimuovi 'use_context=True'
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start", start))
